@@ -1,0 +1,10 @@
+node_modules
+public
+npm-debug.log
+npm-debug.log.*
+.awcache/
+.cache-loader/
+log/*.log
+log/*.log.*
+
+!*/.gitkeep
