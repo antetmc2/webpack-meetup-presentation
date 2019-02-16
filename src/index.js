@@ -1,1 +1,7 @@
-console.log('Hello world from .NET meetup! :)');
+const message = 'Hello world from .NET meetup! :)'
+
+console.log(message);
+
+const element = document.createElement('h1');
+element.innerHTML = message;
+document.body.appendChild(element);
