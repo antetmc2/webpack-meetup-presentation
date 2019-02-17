@@ -1,3 +1,9 @@
 html {
     background-color: gainsboro;
 }
+
+.image {
+    background-image: url('../assets/vw_t-roc.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+}

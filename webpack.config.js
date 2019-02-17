@@ -23,6 +23,17 @@ module.exports = {
                 test: /.css$/,
                 include: [path.join(__dirname, 'src', 'styles')],
                 use: [MiniCssExtractPlugin.loader, 'css-loader']
+            },
+            {
+                test: /\.(jpe?g|png|gif|svg|ico)(\?.*$|$)$/i,
+                include: [path.join(__dirname, 'src', 'assets')],
+                use: [{
+                  loader: 'url-loader',
+                  options: {
+                    limit: 10000,
+                    name: '[name].[ext]', // If we wanna encode it, e.g. '[sha512:hash:hex:9999].[ext]'
+                  }
+                }]
               }
         ]
     },
