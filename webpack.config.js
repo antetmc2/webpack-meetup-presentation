@@ -1,6 +1,21 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require('path');
 
 module.exports = {
+    module: {
+        rules: [{
+           test: /.(js|jsx)?$/,
+           exclude: [path.join(__dirname, 'node_modules')],
+           use: [{ // 'babel-loader' enough if we are not using any options
+             loader: 'babel-loader',
+             options: {
+               presets: [
+                 '@babel/preset-env'
+               ]
+             }
+           }]
+        }]
+    },
     plugins: [
         new HtmlWebpackPlugin({
             title: "Webpack .NET meetup",
