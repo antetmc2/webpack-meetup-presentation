@@ -10,7 +10,12 @@ module.exports = {
              loader: 'babel-loader',
              options: {
                presets: [
-                 '@babel/preset-env'
+                 ['@babel/preset-env', {
+                     targets: {
+                        browsers: ['>= 0.25%', 'IE 11', 'since 2017', 'not op_mini all']
+                     },
+                     useBuiltIns: 'usage'
+                 }]
                ]
              }
            }]
