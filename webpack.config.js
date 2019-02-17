@@ -1,4 +1,6 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin');
 const path = require('path');
 
 module.exports = {
@@ -20,7 +22,7 @@ module.exports = {
             {
                 test: /.css$/,
                 include: [path.join(__dirname, 'src', 'styles')],
-                use: ['style-loader', 'css-loader']
+                use: [MiniCssExtractPlugin.loader, 'css-loader']
               }
         ]
     },
@@ -28,7 +30,15 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: "Webpack .NET meetup",
         }),
+        new MiniCssExtractPlugin({
+            filename: 'css/[name].css'
+        })
     ],
+    optimization: {
+        minimizer: [
+            new OptimizeCssAssetsWebpackPlugin({}),
+        ]
+    },
     devServer: {
         stats: 'errors-only',
         host: process.env.HOST, // Defaults to localhost
