@@ -31,6 +31,7 @@ module.exports = {
                   loader: 'url-loader',
                   options: {
                     limit: 10000,
+                    publicPath: '../',
                     name: '[name].[ext]', // If we wanna encode it, e.g. '[sha512:hash:hex:9999].[ext]'
                   }
                 }]

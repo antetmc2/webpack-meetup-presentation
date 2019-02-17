@@ -6,4 +6,6 @@ html {
     background-image: url('../assets/vw_t-roc.jpg');
     background-repeat: no-repeat;
     background-position: center;
+    width: 600px;
+    height: 400px;
 }
