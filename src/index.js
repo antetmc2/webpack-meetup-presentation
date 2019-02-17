@@ -1,3 +1,5 @@
+import './styles/style.css';
+
 const message = 'Hello world from .NET meetup! :)'
 
 console.log(message);
