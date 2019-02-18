@@ -3,6 +3,17 @@ const path = require('path');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
+exports.entry = {
+    entry: {
+        main: path.join(rootPath, 'src', 'index.js'),
+        anotherFile: path.join(rootPath, 'src', 'anotherFile.js'),
+    },
+    output: {
+        filename: '[name].js',
+        path: path.resolve(rootPath, 'public')
+    },
+};
+
 exports.loaders = {
     module: {
         rules: [
@@ -20,7 +31,7 @@ exports.loaders = {
                 }]
             },
             {
-                test: /.css$/,
+                test: /\.css$/,
                 include: [path.join(rootPath, 'src', 'styles')],
                 use: [MiniCssExtractPlugin.loader, 'css-loader']
             },
@@ -50,6 +61,22 @@ exports.html = {
     plugins: [
         new HtmlWebpackPlugin({
             title: "Webpack .NET meetup",
+            chunks: ['main', 'vendors']
         })
     ]
 }
+
+exports.splitChunks = {
+    optimization: {
+        splitChunks: {
+            chunks: 'initial',
+            cacheGroups: {
+                default: false,
+                vendors: {
+                    test: /node_modules/,
+                    name: "vendors",
+                },
+            },
+        },
+    }
+};

@@ -4,7 +4,7 @@ const commonParts = require('./config/webpack/common.js');
 const devParts = require('./config/webpack/dev.js');
 const prodParts = require('./config/webpack/prod.js');
 
-const common = merge(commonParts.loaders, commonParts.html);
+const common = merge(commonParts.loaders, commonParts.html, commonParts.splitChunks, commonParts.entry);
 
 const prod = merge(common, prodParts.minimizeCss);
 

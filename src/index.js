@@ -1,4 +1,6 @@
 import './styles/style.css';
+import 'react';
+import 'react-dom';
 
 const message = 'Hello world from .NET meetup! :)'
 
