@@ -9,3 +9,4 @@ log/*.log.*
 
 !*/.gitkeep
 dist
+package-lock.json
